@@ -3,7 +3,7 @@
   <div class="container">
     <div class="footer__header">
       <a href="../index.php" class="footer__brand">
-        <img src="../assets/img/logo.png" alt="FloraFavs" />
+        <img src="../assets/img/logorahman.png" alt="FloraFavs" />
       </a>
       <p class="footer__description">
         Website yang menjual berbagai macam Buku dengan harga retail dan kemudahan bagi pengguna.
