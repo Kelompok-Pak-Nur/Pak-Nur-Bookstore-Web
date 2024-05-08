@@ -8,7 +8,7 @@ if (!isset($_SESSION['customer_id'])) {
   exit();
 }
 
-require_once('data/plant.php');
+require_once('data/book.php');
 require_once('data/category.php');
 
 // KATA KUNCI
@@ -19,7 +19,7 @@ $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : '';
 // AMBIL KATEGORI
 $categories = get_categories();
 // SEARCH ENGINE DENGAN KATAKUNCI & KATEGORI
-$plants = search_plants_with_category($keyword, $category_id, true);
+$books = search_books_with_category($keyword, $category_id, true);
 
 $title = 'Produk';
 require('layouts/header.php');
@@ -58,29 +58,29 @@ require('layouts/header.php');
   <div class="products container">
     <div class="products__body">
       <!-- TAMPILKAN HASIL PENCARIAN PRODUK -->
-      <?php foreach ($plants as $plant) : ?>
+      <?php foreach ($books as $book) : ?>
         <div class="products__card">
           <div class="products__card-top">
             <!-- GAMBAR PRODUK -->
-            <img src="./assets/img/plants/<?= $plant['plant_photo'] ?>" alt="<?= $plant['plant_name'] ?>" class="products__card-img" />
+            <img src="./assets/img/books/<?= $book['book_photo'] ?>" alt="<?= $book['book_name'] ?>" class="products__card-img" />
           </div>
           <div class="products__card-body">
             <!-- HARGA -->
-            <p class="products__card-price">Rp<?= number_format($plant['plant_price']) ?></p>
+            <p class="products__card-price">Rp<?= number_format($book['book_price']) ?></p>
             <!-- NAMA -->
-            <h3 class="products__card-name"><?= $plant['plant_name'] ?></h3>
+            <h3 class="products__card-name"><?= $book['book_name'] ?></h3>
             <!-- KATEGORI, STOCK -->
             <p class="products__card-info">
               <i class="ph ph-tag"></i>
-              <?= $plant['category_name'] ?>
+              <?= $book['category_name'] ?>
               <i class="ph ph-package"></i>
-              <?= $plant['plant_stock'] ?> stok
+              <?= $book['book_stock'] ?> stok
             </p>
             <hr />
             <!-- TOMBOL +KERANJANG & BELI SEKARANG -->
             <form action="./add-to-cart.php" method="post" class="products__card-actions">
               <!-- +KERANJANG -->
-              <input type="hidden" name="plant_id" value="<?= $plant['plant_id'] ?>">
+              <input type="hidden" name="book_id" value="<?= $book['book_id'] ?>">
               <button type="submit" name="add_to_cart" class="products__card-action-button">
                 <i class="ph ph-plus-circle"></i>
                 Keranjang
@@ -95,7 +95,7 @@ require('layouts/header.php');
         </div>
       <?php endforeach; ?>
       <!-- JIKA HASIL PENCARIAN KOSONG -->
-      <?php if (empty($plants)) : ?>
+      <?php if (empty($books)) : ?>
         <div class="products__empty">
           Produk kosong!
         </div>

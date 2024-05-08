@@ -12,7 +12,7 @@ if (!isset($_SESSION['customer_id'])) {
 require_once('data/cart-item.php');
 
 // ambil isi keranjang cust
-$cart_items = get_cart_items_with_plant_with_category($_SESSION['customer_id']);
+$cart_items = get_cart_items_with_book_with_category($_SESSION['customer_id']);
 
 // HEADER
 $title = 'Keranjang';
@@ -37,21 +37,21 @@ require('layouts/header.php');
         <?php foreach ($cart_items as $cart_item) : ?>
           <?php
           // penjumlahan Subtotal & Total
-          $subtotal =  $cart_item['plant_price'] * $cart_item['cart_item_qty'];
+          $subtotal =  $cart_item['book_price'] * $cart_item['cart_item_qty'];
           $total += $subtotal;
           ?>
           <!-- cart item -->
           <div class="cart__item">
             <div class="cart__item-left">
               <!-- GAMBAR PRODUK -->
-              <img src="./assets/img/plants/<?= $cart_item['plant_photo'] ?>" alt="<?= $cart_item['plant_name'] ?>" />
+              <img src="./assets/img/books/<?= $cart_item['book_photo'] ?>" alt="<?= $cart_item['book_name'] ?>" />
               <div class="cart__item-left-text">
                 <!-- NAMA, KATEGORI  -->
-                <h2><?= $cart_item['plant_name'] ?></h2>
+                <h2><?= $cart_item['book_name'] ?></h2>
                 <p><?= $cart_item['category_name'] ?></p>
                 <!-- TOMBOL TAMBAH, KURANG -->
                 <form action="./update-cart-item.php" method="post" class="cart__actions">
-                  <input type="hidden" name="plant_id" value="<?= $cart_item['plant_id'] ?>">
+                  <input type="hidden" name="book_id" value="<?= $cart_item['book_id'] ?>">
                   <button type="submit" name="reduce" class="cart__action-button">
                     <i class="ph ph-minus"></i>
                   </button>
@@ -60,13 +60,13 @@ require('layouts/header.php');
                     <i class="ph ph-plus"></i>
                   </button>
                   <!-- HARGA TUMBUHAN/PCS -->
-                  <span>x Rp<?= number_format($cart_item['plant_price']) ?></span>
+                  <span>x Rp<?= number_format($cart_item['book_price']) ?></span>
                 </form>
               </div>
             </div>
             <!-- HAPUS PRODUK DARI KERANJANG -->
             <form action="./delete-cart-item.php" method="post" class="cart__item-right">
-              <input type="hidden" name="plant_id" value="<?= $cart_item['plant_id'] ?>">
+              <input type="hidden" name="book_id" value="<?= $cart_item['book_id'] ?>">
               <button type="submit" name="submit">
                 <i class="ph ph-x"></i>
               </button>

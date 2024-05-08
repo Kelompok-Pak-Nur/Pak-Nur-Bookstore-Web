@@ -61,6 +61,14 @@
           </a>
         </li>
       <?php endif; ?>
+      <?php if ($_SESSION['role_name'] == 'manager') : ?>
+        <li class="sidebar__menu-item">
+          <a href="./streamlit.php" class="sidebar__menu-link <?= $page === 'streamlit' ? 'sidebar__menu-link_active' : ''; ?>">
+            <i class="ph ph-chart-pie"></i>
+            Streamlit
+          </a>
+        </li>
+      <?php endif; ?>
     </ul>
     <?php if ($_SESSION['role_name'] == 'manager') : ?>
       <a href="./manager-unpaid-transactions.php" class="sidebar__cta">
@@ -74,6 +82,7 @@
         <i class="ph ph-arrow-right"></i>
       </a>
     <?php endif; ?>
+
   </nav>
 </div>
 <!-- end sidebar -->

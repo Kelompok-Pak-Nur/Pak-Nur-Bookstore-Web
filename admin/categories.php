@@ -15,7 +15,7 @@ if ($_SESSION['role_name'] != 'administrator') {
 }
 
 require_once('../data/category.php');
-require_once('../data/plant.php');
+require_once('../data/book.php');
 
 // mengambil seluruh kategori
 $categories = get_categories();
@@ -52,7 +52,7 @@ require('layouts/header.php');
               <td>
                 <a href="./category-single.php?category_id=<?= $category['category_id'] ?>"><?= $category['category_name'] ?></a>
               </td>
-              <td><?= count_related_plants_based_on_category($category['category_id'])['count_related_plants'] ?></td>
+              <td><?= count_related_books_based_on_category($category['category_id'])['count_related_books'] ?></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

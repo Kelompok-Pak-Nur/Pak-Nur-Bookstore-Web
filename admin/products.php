@@ -14,9 +14,9 @@ if ($_SESSION['role_name'] != 'administrator') {
   exit();
 }
 
-require_once('../data/plant.php');
+require_once('../data/book.php');
 
-$plants = get_plants_with_category();
+$books = get_books_with_category();
 
 // inisialisasi variabel untuk halaman dan komponen header
 $page = 'products';
@@ -46,13 +46,13 @@ require('layouts/header.php');
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($plants as $i => $plant) : ?>
+          <?php foreach ($books as $i => $book) : ?>
             <tr>
               <td><?= $i + 1 ?>.</td>
-              <td><a href="./product-single.php?plant_id=<?= $plant['plant_id'] ?>"><?= $plant['plant_name'] ?></a></td>
-              <td>Rp<?= number_format($plant['plant_price']) ?></td>
-              <td><?= $plant['plant_stock'] ?></td>
-              <td><?= $plant['category_name'] ?></td>
+              <td><a href="./product-single.php?book_id=<?= $book['book_id'] ?>"><?= $book['book_name'] ?></a></td>
+              <td>Rp<?= number_format($book['book_price']) ?></td>
+              <td><?= $book['book_stock'] ?></td>
+              <td><?= $book['category_name'] ?></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

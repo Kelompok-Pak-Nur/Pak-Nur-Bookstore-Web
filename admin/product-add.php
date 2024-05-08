@@ -15,7 +15,7 @@ if ($_SESSION['role_name'] != 'administrator') {
 }
 
 require_once('../data/category.php');
-require_once('../data/plant.php');
+require_once('../data/book.php');
 require_once('../data/supplier.php');
 require_once('../libs/validation.php');
 require_once('../libs/file.php');
@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
   validate_name($errors, $_POST, 'name');
   validate_num($errors, $_POST, 'price');
   validate_num($errors, $_POST, 'stock');
-  $filename = upload_file($_FILES, 'photo', 'plants');
+  $filename = upload_file($_FILES, 'photo', 'books');
 
   // cek apakah foto tidak diisi
   if (!$filename) {
@@ -47,14 +47,14 @@ if (isset($_POST['submit'])) {
   // cek apakah tidak ada error
   if (!$errors) {
     $_POST['photo'] = $filename;
-    save_plant($_POST);
+    save_book($_POST);
     header('Location: ./products.php');
     exit();
   }
 
   // cek apakah foto diisi
   if ($filename) {
-    delete_file($filename, 'plants');
+    delete_file($filename, 'books');
   }
 
   $old_inputs['supplier_id'] = htmlspecialchars($_POST['supplier_id']);

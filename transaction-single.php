@@ -27,7 +27,7 @@ if (!$order) {
 }
 
 // AMBIL DETAIL ORDERAN (1 ORDER)
-$order_details = get_order_details_with_plant_with_category($order['order_id']);
+$order_details = get_order_details_with_book_with_category($order['order_id']);
 
 // HEADER
 $title = 'Detail Transaksi';
@@ -56,17 +56,17 @@ require('layouts/header.php');
         <?php foreach ($order_details as $order_detail) : ?>
           <?php
           // SUBTOTAL & TOTAL
-          $subtotal =  $order_detail['plant_price'] * $order_detail['order_detail_qty'];
+          $subtotal =  $order_detail['book_price'] * $order_detail['order_detail_qty'];
           $total += $subtotal;
           ?>
           <!-- transactioin single item -->
           <div class="transaction-single__item">
             <div class="transaction-single__item-left">
               <!-- GAMBAR -->
-              <img src="./assets/img/plants/<?= $order_detail['plant_photo'] ?>" alt="<?= $order_detail['plant_name'] ?>" />
+              <img src="./assets/img/books/<?= $order_detail['book_photo'] ?>" alt="<?= $order_detail['book_name'] ?>" />
               <div class="transaction-single__item-left-text">
                 <!-- NAMA -->
-                <h2><?= $order_detail['plant_name'] ?></h2>
+                <h2><?= $order_detail['book_name'] ?></h2>
                 <!-- KATEGORI -->
                 <p><?= $order_detail['category_name'] ?></p>
                 <!-- HARGA PRODUK -->

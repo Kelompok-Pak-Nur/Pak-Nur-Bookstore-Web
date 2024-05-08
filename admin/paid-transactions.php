@@ -48,7 +48,7 @@ require('layouts/header.php');
 
     $paymentmethod = $pdo->prepare("SELECT payment_method_bank FROM payment_methods paymet, orders ord WHERE paymet.payment_method_id = ord.payment_method_id AND order_status = 'paid' AND order_date BETWEEN :datestart AND :dateend ORDER BY order_date");
     $orderdate = $pdo->prepare("SELECT order_date FROM orders WHERE order_status = 'paid'AND order_date BETWEEN :datestart AND :dateend ORDER BY order_date");
-    $plantquantity = $pdo->prepare("SELECT SUM(ordet.order_detail_qty) AS quantity FROM order_details ordet, orders ord WHERE ord.order_id = ordet.order_id AND ord.order_status = 'paid' AND order_date BETWEEN :datestart AND :dateend GROUP BY ord.order_id ORDER BY ord.order_date");
+    $bookquantity = $pdo->prepare("SELECT SUM(ordet.order_detail_qty) AS quantity FROM order_details ordet, orders ord WHERE ord.order_id = ordet.order_id AND ord.order_status = 'paid' AND order_date BETWEEN :datestart AND :dateend GROUP BY ord.order_id ORDER BY ord.order_date");
     $orderprice = $pdo->prepare("SELECT order_total_price FROM orders WHERE order_status = 'paid' AND order_date BETWEEN :datestart AND :dateend ORDER BY order_date");
     $linkid = $pdo->prepare("SELECT order_id FROM orders WHERE order_status = 'paid' AND order_date BETWEEN '1023-01-01' AND '5023-12-12' ORDER BY order_date");
 
@@ -65,8 +65,8 @@ require('layouts/header.php');
     $paymentmethod->bindParam(':dateend', $dateend);
     $orderdate->bindParam(':datestart', $datestart);
     $orderdate->bindParam(':dateend', $dateend);
-    $plantquantity->bindParam(':datestart', $datestart);
-    $plantquantity->bindParam(':dateend', $dateend);
+    $bookquantity->bindParam(':datestart', $datestart);
+    $bookquantity->bindParam(':dateend', $dateend);
     $orderprice->bindParam(':datestart', $datestart);
     $orderprice->bindParam(':dateend', $dateend);
 
@@ -75,14 +75,14 @@ require('layouts/header.php');
     $penjualan->execute();
     $paymentmethod->execute();
     $orderdate->execute();
-    $plantquantity->execute();
+    $bookquantity->execute();
     $orderprice->execute();
     $linkid->execute();
 
     // Fetch data
     $paymentmethodarray = $paymentmethod->fetchAll(PDO::FETCH_ASSOC);
     $orderdatearray = $orderdate->fetchAll(PDO::FETCH_ASSOC);
-    $plantquantityarray = $plantquantity->fetchAll(PDO::FETCH_ASSOC);
+    $bookquantityarray = $bookquantity->fetchAll(PDO::FETCH_ASSOC);
     $orderpricearray = $orderprice->fetchAll(PDO::FETCH_ASSOC);
     $linkidarray = $linkid->fetchAll(PDO::FETCH_ASSOC);
 
@@ -151,8 +151,8 @@ require('layouts/header.php');
             } else if ($don == 2 && $rait != 0 && $rait != $drop) { // kolom 2 untuk tanggal
               echo '<td>' . date('d M Y', strtotime($orderdatearray[$rait - 1]['order_date'])) . '</td>';
             } else if ($don == 3 && $rait != 0 && $rait != $drop) { // kolom 3 untuk kuantitas produk
-              echo '<td>' . $plantquantityarray[$rait - 1]['quantity'] . '</td>';
-              $totalquantity += $plantquantityarray[$rait - 1]['quantity'];
+              echo '<td>' . $bookquantityarray[$rait - 1]['quantity'] . '</td>';
+              $totalquantity += $bookquantityarray[$rait - 1]['quantity'];
             } else if ($don == 5) {
               if ($rait == $len) { // kolom untuk info lebih lanjut
                 echo '<td><a href="./paid-transaction-single.php?transid=' . $linkidarray[$rait - 1]['order_id'] . '">Detail</a></td></tbody>';

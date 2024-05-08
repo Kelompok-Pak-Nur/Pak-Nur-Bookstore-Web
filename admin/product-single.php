@@ -15,23 +15,23 @@ if ($_SESSION['role_name'] != 'administrator') {
 }
 
 // cek apakah id tanaman tidak ada
-if (!isset($_GET['plant_id'])) {
+if (!isset($_GET['book_id'])) {
   header("Location: ./products.php");
   exit();
 }
 
 require_once('../data/category.php');
-require_once('../data/plant.php');
+require_once('../data/book.php');
 require_once('../data/supplier.php');
 require_once('../libs/validation.php');
 require_once('../libs/file.php');
 
-$plant = find_plant($_GET['plant_id']);
+$book = find_book($_GET['book_id']);
 $categories = get_categories();
 $suppliers = get_suppliers();
 
 // cek apakah tanaman tidak ditemukan
-if (!$plant) {
+if (!$book) {
   header("Location: ./products.php");
   exit();
 }
@@ -39,11 +39,11 @@ if (!$plant) {
 // inisialisasi variabel untuk menyimpan error dan inputan user
 $errors = [];
 $old_inputs = [
-  'supplier_id' => $plant['supplier_id'],
-  'category_id' => $plant['category_id'],
-  'name' => $plant['plant_name'],
-  'price' => $plant['plant_price'],
-  'stock' => $plant['plant_stock'],
+  'supplier_id' => $book['supplier_id'],
+  'category_id' => $book['category_id'],
+  'name' => $book['book_name'],
+  'price' => $book['book_price'],
+  'stock' => $book['book_stock'],
 ];
 
 // cek apakah tombol submit ditekan
@@ -56,17 +56,17 @@ if (isset($_POST['submit'])) {
 
   // cek apakah tidak ada error
   if (!$errors) {
-    $filename = upload_file($_FILES, 'photo', 'plants');
+    $filename = upload_file($_FILES, 'photo', 'books');
 
     // cek apakah foto berhasil diupload
     if ($filename) {
       $_POST['photo'] = $filename;
-      delete_file($plant['plant_photo'], 'plants');
+      delete_file($book['book_photo'], 'books');
     } else {
-      $_POST['photo'] = $plant['plant_photo'];
+      $_POST['photo'] = $book['book_photo'];
     }
 
-    update_plant($plant['plant_id'], $_POST);
+    update_book($book['book_id'], $_POST);
     header('Location: ./products.php');
     exit();
   }
@@ -99,8 +99,8 @@ require('layouts/header.php');
   </div>
   <div class="admin__body">
     <div class="admin__card">
-      <form action="./product-single.php?plant_id=<?= $plant['plant_id'] ?>" method="post" class="page-single" enctype="multipart/form-data">
-        <img src="../assets/img/plants/<?= $plant['plant_photo'] ?>" alt="<?= $plant['plant_name'] ?>" class="page-single__img" />
+      <form action="./product-single.php?book_id=<?= $book['book_id'] ?>" method="post" class="page-single" enctype="multipart/form-data">
+        <img src="../assets/img/books/<?= $book['book_photo'] ?>" alt="<?= $book['book_name'] ?>" class="page-single__img" />
         <div>
           <label for="name" class="input-label">Nama <span class="text-danger">*</span></label>
           <input type="text" id="name" name="name" class="input" value="<?= $old_inputs['name'] ?>" />
@@ -164,7 +164,7 @@ require('layouts/header.php');
           <?php endif; ?>
         </div>
         <div class="page-single__actions-container">
-          <a href="./product-delete.php?plant_id=<?= $plant['plant_id'] ?>" class="page-single__button">Hapus</a>
+          <a href="./product-delete.php?book_id=<?= $book['book_id'] ?>" class="page-single__button">Hapus</a>
           <div class="page-single__actions">
             <a href="./products.php" class="page-single__button">Batal</a>
             <button type="submit" name="submit" class="page-single__button page-single__button_primary">

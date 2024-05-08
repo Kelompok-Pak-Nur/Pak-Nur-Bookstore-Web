@@ -65,10 +65,10 @@ function save_order($customer_id, $payment_method_id)
   try {
     $db = new PDO('mysql:host=localhost;dbname=' . DB_NAME, DB_USERNAME, DB_PASSWORD, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
-    $cart_items = get_cart_items_with_plant($customer_id);
+    $cart_items = get_cart_items_with_book($customer_id);
     $total_price = 0;
     foreach ($cart_items as $cart_item) {
-      $total_price += $cart_item['plant_price'] * $cart_item['cart_item_qty'];
+      $total_price += $cart_item['book_price'] * $cart_item['cart_item_qty'];
     }
 
     $statement = $db->prepare("INSERT INTO orders (customer_id, payment_method_id, order_date, order_status, order_total_price) VALUES (:customer_id, :payment_method_id, :date, :status, :total_price)");
@@ -80,8 +80,8 @@ function save_order($customer_id, $payment_method_id)
     $statement->execute();
 
     foreach ($cart_items as $cart_item) {
-      $order_detail = ['qty' => $cart_item['cart_item_qty'], 'unit_price' => $cart_item['plant_price']];
-      save_order_detail($db->lastInsertId(), $cart_item['plant_id'], $order_detail);
+      $order_detail = ['qty' => $cart_item['cart_item_qty'], 'unit_price' => $cart_item['book_price']];
+      save_order_detail($db->lastInsertId(), $cart_item['book_id'], $order_detail);
     }
 
     delete_all_cart_items($customer_id);

@@ -15,7 +15,7 @@ require_once('data/order.php');
 // list penampung error
 $errors = [];
 // ambil isi dari keranjang cust
-$cart_items = get_cart_items_with_plant_with_category($_SESSION['customer_id']);
+$cart_items = get_cart_items_with_book_with_category($_SESSION['customer_id']);
 // ambil methode pembayaran
 $payment_methods = get_payment_methods();
 
@@ -64,21 +64,21 @@ require('layouts/header.php');
         <?php foreach ($cart_items as $cart_item) : ?>
           <?php
           // INTANCE TOTAL,SUBTOTAL
-          $subtotal =  $cart_item['plant_price'] * $cart_item['cart_item_qty'];
+          $subtotal =  $cart_item['book_price'] * $cart_item['cart_item_qty'];
           $total += $subtotal;
           ?>
           <!-- checkuot item -->
           <div class="checkout__item">
             <div class="checkout__item-left">
-              <img src="./assets/img/plants/<?= $cart_item['plant_photo'] ?>" alt="<?= $cart_item['plant_name'] ?>" />
+              <img src="./assets/img/books/<?= $cart_item['book_photo'] ?>" alt="<?= $cart_item['book_name'] ?>" />
               <div class="checkout__item-left-text">
                 <!-- NAMA PRODUK -->
-                <h2><?= $cart_item['plant_name'] ?></h2>
+                <h2><?= $cart_item['book_name'] ?></h2>
                 <!-- KATEGORI -->
                 <p><?= $cart_item['category_name'] ?></p>
                 <!-- TOMBOL TAMBAH, KURANGI -->
                 <form action="./update-cart-item.php" method="post" class="checkout__actions">
-                  <input type="hidden" name="plant_id" value="<?= $cart_item['plant_id'] ?>">
+                  <input type="hidden" name="book_id" value="<?= $cart_item['book_id'] ?>">
                   <button type="submit" name="reduce" class="checkout__action-button">
                     <i class="ph ph-minus"></i>
                   </button>
@@ -87,13 +87,13 @@ require('layouts/header.php');
                     <i class="ph ph-plus"></i>
                   </button>
                   <!-- HARGA TUMBUHAN/PCS -->
-                  <span>x Rp<?= number_format($cart_item['plant_price']) ?></span>
+                  <span>x Rp<?= number_format($cart_item['book_price']) ?></span>
                 </form>
               </div>
             </div>
             <!-- SUBTOTAL -->
             <form action="./delete-cart-item.php" method="post" class="checkout__item-right">
-              <input type="hidden" name="plant_id" value="<?= $cart_item['plant_id'] ?>">
+              <input type="hidden" name="book_id" value="<?= $cart_item['book_id'] ?>">
               <button type="submit" name="submit">
                 <i class="ph ph-x"></i>
               </button>

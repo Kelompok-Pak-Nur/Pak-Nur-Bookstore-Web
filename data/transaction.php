@@ -77,7 +77,7 @@ function get_order_details_admin($id)
 {
   try {
     $db = new PDO('mysql:host=localhost;dbname=' . DB_NAME, DB_USERNAME, DB_PASSWORD, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-    $statement = $db->prepare("SELECT * FROM order_details JOIN plants ON order_details.plant_id = plants.plant_id WHERE order_id = :id");
+    $statement = $db->prepare("SELECT * FROM order_details JOIN books ON order_details.book_id = books.book_id WHERE order_id = :id");
     $statement->bindParam(':id', $id, PDO::PARAM_INT);
     $statement->execute();
 

@@ -15,24 +15,24 @@ if ($_SESSION['role_name'] != 'administrator') {
 }
 
 // cek apakah id tanaman tidak ada
-if (!isset($_GET['plant_id'])) {
+if (!isset($_GET['book_id'])) {
   header("Location: ./products.php");
   exit();
 }
 
-require_once('../data/plant.php');
+require_once('../data/book.php');
 require_once('../libs/file.php');
 
-$plant = find_plant($_GET['plant_id']);
+$book = find_book($_GET['book_id']);
 
 // cek apakah tanaman tidak ditemukan
-if (!$plant) {
+if (!$book) {
   header("Location: ./products.php");
   exit();
 }
 
-delete_plant($_GET['plant_id']);
-delete_file($plant['plant_photo'], 'plants');
+delete_book($_GET['book_id']);
+delete_file($book['book_photo'], 'books');
 
 header('Location: ./products.php');
 exit();
