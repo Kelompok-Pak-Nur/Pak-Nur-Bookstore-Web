@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 06:25 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: May 08, 2024 at 06:40 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,86 +42,62 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`book_id`, `supplier_id`, `category_id`, `book_name`, `book_price`, `book_stock`, `book_photo`) VALUES
-(21, 1, 5, 'Adab Mulia Terhadap Guru', 34500, 2, '0.jpg'),
-(22, 2, 5, 'Fiqhul Haidh (Kajian Tentang Fiqih)', 40000, 2, '1.jpg'),
-(23, 3, 5, 'Karakter Diri di Balik Juz Al Qur\'an', 40000, 2, '2.jpg'),
-(24, 4, 5, 'Karakter Diri di Balik Juz Al Qur\'an', 50000, 2, '3.jpg'),
-(25, 1, 5, 'Kisah Nabi Muhammad SAW', 34500, 2, '4.jpg'),
-(26, 2, 5, 'Kisah-Kisah Rosulullah', 35000, 2, '5.jpg'),
-(27, 3, 5, 'Kisah-Kisah dalam Al-Qur\'an 1 (Ulul Azmi)', 32000, 2, '6.jpg'),
-(28, 4, 5, 'Petunjuk Mendapatkan Lailatul Qodar disertai dengan Hadits Shahih', 30000, 2, '7.jpg'),
-(29, 1, 5, 'Seri Akhlak Mulia VI: Hidup Berhias Ilmu', 36300, 2, '8.jpg'),
-(30, 2, 6, 'Anugerah Gunung Merapi', 33500, 2, '9.jpg'),
-(31, 3, 6, 'Bencana Alam Geologi', 39400, 2, '10.jpg'),
-(32, 4, 6, 'Efek Rumah Kaca', 38000, 2, '11.jpg'),
-(33, 1, 6, 'Indahnya Budaya Tertib Lalu Lintas', 36000, 1, '12.jpg'),
-(34, 2, 6, 'Keajaiban Dunia Baru 6', 30000, 2, '13.jpg'),
-(35, 3, 6, 'Keajaiban Dunia Kuno 1', 30000, 1, '14.jpg'),
-(36, 4, 6, 'Keajaiban Dunia Modern Jilid 5', 30000, 2, '15.jpg'),
-(37, 1, 6, 'Madu Asli atau Tidak?', 37500, 2, '16.jpg'),
-(38, 2, 6, 'Sampah Itu Emas', 34500, 2, '17.jpg'),
-(39, 3, 6, 'Waspada Banjir dan Tanah Longsor 2', 37500, 2, '18.jpg'),
-(40, 3, 7, 'Ensiklopedia Matematika Terapan Matematika dalam Makanan', 37500, 1, '19.jpg'),
-(41, 4, 7, 'Gaptek, No Way 1 (Mengenal Komputer Dasar dan Aplikasi Sederhana) Ver. 1', 36000, 1, '20.jpg'),
-(42, 1, 7, 'Gaptek, No Way 2 (Microsoft Word)', 33500, 2, '21.jpg'),
-(43, 2, 7, 'Guru Menulis di Media Massa', 38000, 1, '22.jpg'),
-(44, 3, 7, 'Ilmu dan Aplikasi Pendidikan IV \"Pendidikan Lintas Bidang\"', 93500, 2, '23.jpg'),
-(45, 4, 7, 'Manfaat Tanaman Keras Indonesia', 35000, 2, '24.jpg'),
-(46, 1, 7, 'Referensi Matematika dalam Kehidupan Manusia 4', 55000, 2, '25.jpg'),
-(47, 2, 8, 'Ensiklopedia Sejarah dan Budaya Jilid 4 Revolusi dan kemerdekaan unifikasi dan kolonisasi', 150000, 1, '26.jpg'),
-(48, 3, 8, 'Ensiklopedia Sejarah dan Budaya Jilid 7 Dibawah kolonialisme Barat', 109000, 2, '27.jpg'),
-(49, 4, 8, 'Orang-Orang Belanda di Pintu Darurat', 34500, 2, '28.jpg'),
-(50, 1, 8, 'Sejarah Eropa', 40000, 1, '29.jpg'),
-(51, 2, 8, 'Sejarah Eropa', 50000, 1, '30.jpg'),
-(52, 3, 8, 'Sejarah Nenek Moyang Jawa', 37500, 2, '31.jpg'),
-(53, 4, 8, 'Sejarah Perkembangan Islam', 32000, 2, '32.jpg'),
-(54, 1, 8, 'Ziarah Makam Walisongo', 38000, 2, '33.jpg'),
-(55, 2, 9, 'Berjuta Keajaiban Dunia Tumbuhan', 30000, 2, '34.jpg'),
-(56, 3, 9, 'Budi Daya Anggrek', 37500, 2, '35.jpg'),
-(57, 4, 9, 'Budi Daya Tanaman Obat', 33500, 3, '36.jpg'),
-(58, 1, 9, 'Dosa-Dosa Besar Meruntuhkan Amal dan Kebajikan', 36000, 1, '37.jpg'),
-(59, 2, 9, 'Dosa-Dosa Besar Meruntuhkan Amal dan Kebajikan', 37500, 1, '38.jpg'),
-(60, 3, 9, 'Kesehatan di Sekolah', 34500, 2, '39.jpg'),
-(61, 4, 9, 'Kisah-Kisah dalam Al-Qur\'an 1 (Ulul Azmi)', 32000, 2, '40.jpg'),
-(62, 1, 9, 'Membuat Batako', 37500, 1, '41.jpg'),
-(63, 2, 9, 'Menuju Olimpiade Fisika', 98200, 1, '42.jpg'),
-(64, 3, 9, 'Menuju Olimpiade Fisika', 102000, 2, '43.jpg'),
-(65, 4, 9, 'Pertolongan Pertama pada Penyakit 2', 34500, 1, '44.jpg'),
-(66, 1, 9, 'Selayang Pandang Gunung Lawu (Wisata dan Mitos)', 33500, 1, '45.jpg'),
-(67, 2, 10, 'Ayo Berlatih Menulis Surat', 37500, 2, '46.jpg'),
-(68, 3, 10, 'Ayo, Bangun untuk Salat Subuh', 30000, 2, '47.jpg'),
-(69, 4, 10, 'Gaptek, No Way 1 (Mengenal Komputer Dasar dan Aplikasi Sederhana) Ver. 1', 36000, 1, '48.jpg'),
-(70, 1, 10, 'Guru Menulis di Media Massa', 38000, 1, '49.jpg'),
-(71, 2, 10, 'Ilmu dan Aplikasi Pendidikan IV \"Pendidikan Lintas Bidang\"', 93500, 2, '50.jpg'),
-(72, 3, 10, 'Mahir Menggunakan Kamus Bahasa Indonesia', 31500, 1, '51.jpg'),
-(73, 4, 10, 'Panduan Praktis Berbusana', 30000, 2, '52.jpg'),
-(74, 1, 11, 'Indahnya Budaya Tertib Lalu Lintas', 36000, 1, '53.jpg'),
-(75, 2, 11, 'Indahnya Budaya Tertib Lalu Lintas', 36000, 1, '54.jpg'),
-(76, 3, 11, 'Selayang Pandang Gorontalo', 38500, 2, '55.jpg'),
-(77, 4, 12, 'Keajaiban Adab Pertengahan 2', 30000, 1, '56.jpg'),
-(78, 1, 12, 'Menggapai Kesuksesan Masa Depan', 33500, 2, '57.jpg'),
-(79, 2, 12, 'Menghindari Berbagai Bencana Alam', 33300, 2, '58.jpg'),
-(80, 3, 12, 'Mau Kaya Ngak Harus Kuliah 4', 37500, 2, '59.jpg'),
-(81, 4, 12, 'Memajukan Daerah Tertinggal', 33500, 2, '60.jpg'),
-(82, 1, 12, 'Mengenali dan Mengobati Penyakit', 34500, 2, 'gada.jpg'),
-(83, 2, 12, 'Perkembangan Masyarakat pada Masa Kerajaan Hindu Buddha serta Peninggalannya', 38000, 1, '62.jpg'),
-(84, 3, 12, 'Selayang Pandang Indonesiaku', 38000, 1, '63.jpg'),
-(85, 4, 13, 'Menuju Olimpiade Fisika', 98200, 1, '64.jpg'),
-(86, 1, 13, 'Menuju Olimpiade Fisika', 102000, 2, '65.jpg'),
-(87, 2, 13, 'Menuju Olimpiade Fisika', 102000, 2, '66.jpg'),
-(88, 3, 14, 'Jelajah Museum Jawa Timur dan Bali', 30000, 2, '67.jpg'),
-(89, 4, 14, 'Selayang Pandang Gunung Lawu (Wisata dan Mitos)', 33500, 1, '68.jpg'),
-(90, 1, 14, 'Ziarah Makam Walisongo', 38000, 2, '69.jpg'),
-(91, 2, 15, 'Ensiklopedia Matematika Terapan Matematika dalam Makanan', 37500, 1, '70.jpg'),
-(92, 3, 15, 'Ensiklopedia Sejarah dan Budaya Jilid 4 Revolusi dan kemerdekaan unifikasi dan kolonisasi', 150000, 1, '71.jpg'),
-(93, 4, 15, 'Ensiklopedia Sejarah dan Budaya Jilid 7 Dibawah kolonialisme Barat', 109000, 2, '72.jpg'),
-(94, 1, 15, 'Referensi Matematika dalam Kehidupan Manusia 4', 55000, 2, '73.jpg'),
-(95, 2, 16, 'Gaptek, No Way 1 (Mengenal Komputer Dasar dan Aplikasi Sederhana) Ver. 1', 36000, 1, '74.jpg'),
-(96, 3, 16, 'Ilmu dan Aplikasi Pendidikan IV \"Pendidikan Lintas Bidang\"', 93500, 2, '75.jpg'),
-(97, 4, 16, 'Ilmu dan Aplikasi Pendidikan IV \"Pendidikan Lintas Bidang\"', 93500, 2, '76.jpg'),
-(98, 1, 17, 'Membuat Batako', 37500, 1, '77.jpg'),
-(99, 2, 18, 'Budi Daya Anggrek', 37500, 2, '78.jpg'),
-(100, 3, 18, 'Budi Daya Tanaman Obat', 33500, 3, '79.jpg');
+(21, 1, 5, 'Adab Mulia Terhadap Guru', 34500, 2, 'adab.jpg'),
+(22, 2, 5, 'Fiqhul Haidh (Kajian Tentang Fiqih)', 40000, 2, 'fiqhul.jpg'),
+(23, 3, 5, 'Karakter Diri di Balik Juz Al Qur\'an', 40000, 2, 'karakterdiri.jpg'),
+(25, 1, 5, 'Kisah Nabi Muhammad SAW', 34500, 2, 'kisahnabi.jpg'),
+(26, 2, 5, 'Kisah-Kisah Rosulullah', 35000, 2, 'kisahrasul.jpg'),
+(27, 3, 5, 'Kisah-Kisah dalam Al-Qur\'an 1 (Ulul Azmi)', 32000, 2, 'kisahkisah.jpg'),
+(28, 4, 5, 'Petunjuk Mendapatkan Lailatul Qodar disertai dengan Hadits Shahih', 30000, 2, 'lailatul.jpg'),
+(29, 1, 5, 'Seri Akhlak Mulia VI: Hidup Berhias Ilmu', 36300, 2, 'berhias.jpg'),
+(30, 2, 6, 'Anugerah Gunung Merapi', 33500, 2, 'anugrah.jpg'),
+(31, 3, 6, 'Bencana Alam Geologi', 39400, 2, 'bencanaalam.jpg'),
+(32, 4, 6, 'Efek Rumah Kaca', 38000, 2, 'efekrumah.jpg'),
+(33, 1, 6, 'Indahnya Budaya Tertib Lalu Lintas', 36000, 1, 'indahnyabudaya.jpg'),
+(34, 2, 6, 'Keajaiban Dunia Baru 6', 30000, 2, 'keajaiban2.jpg'),
+(35, 3, 6, 'Keajaiban Dunia Kuno 1', 30000, 1, 'keajaiban3.jpg'),
+(36, 4, 6, 'Keajaiban Dunia Modern Jilid 5', 30000, 2, 'keajaiban1.jpg'),
+(37, 1, 6, 'Madu Asli atau Tidak?', 37500, 2, 'madu.jpg'),
+(38, 2, 6, 'Sampah Itu Emas', 34500, 2, 'sampah.jpg'),
+(39, 3, 6, 'Waspada Banjir dan Tanah Longsor 2', 37500, 2, 'waspadabanjir.jpg'),
+(40, 3, 7, 'Ensiklopedia Matematika Terapan Matematika dalam Makanan', 37500, 1, 'ensiklopediamtk.jpg'),
+(41, 4, 7, 'Gaptek, No Way 1 (Mengenal Komputer Dasar dan Aplikasi Sederhana) Ver. 1', 36000, 1, 'gaptek1.jpg'),
+(42, 1, 7, 'Gaptek, No Way 2 (Microsoft Word)', 33500, 2, 'gaptek2.jpg'),
+(43, 2, 7, 'Guru Menulis di Media Massa', 38000, 1, 'gurumenulis.jpg'),
+(44, 3, 7, 'Ilmu dan Aplikasi Pendidikan IV \"Pendidikan Lintas Bidang\"', 93500, 2, 'ilmudanaplikasi.jpg'),
+(45, 4, 7, 'Manfaat Tanaman Keras Indonesia', 35000, 2, 'manfaattanaman.jpg'),
+(46, 1, 7, 'Referensi Matematika dalam Kehidupan Manusia 4', 55000, 2, 'referensimtk.jpg'),
+(47, 2, 8, 'Ensiklopedia Sejarah dan Budaya Jilid 4 Revolusi dan kemerdekaan unifikasi dan kolonisasi', 150000, 1, 'ensiklopediasejarah.jpg'),
+(48, 3, 8, 'Ensiklopedia Sejarah dan Budaya Jilid 7 Dibawah kolonialisme Barat', 109000, 2, 'ensiklopediasejarah7.jpg'),
+(49, 4, 8, 'Orang-Orang Belanda di Pintu Darurat', 34500, 2, 'orangbelanda.jpg'),
+(50, 1, 8, 'Sejarah Eropa', 40000, 1, 'sejaraheropa.jpg'),
+(52, 3, 8, 'Sejarah Nenek Moyang Jawa', 37500, 2, 'sejarahnenek.jpg'),
+(53, 4, 8, 'Sejarah Perkembangan Islam', 32000, 2, 'sejarahislam.jpg'),
+(54, 1, 8, 'Ziarah Makam Walisongo', 38000, 2, 'ziarahmakam.jpg'),
+(55, 2, 9, 'Berjuta Keajaiban Dunia Tumbuhan', 30000, 2, 'berjutakeajaiban.jpg'),
+(56, 3, 9, 'Budi Daya Anggrek', 37500, 2, 'budidayaanggrek.jpg'),
+(57, 4, 9, 'Budi Daya Tanaman Obat', 33500, 3, 'budidayatanaman.jpg'),
+(58, 1, 9, 'Dosa-Dosa Besar Meruntuhkan Amal dan Kebajikan', 36000, 1, 'dosadosa.jpg'),
+(60, 3, 9, 'Kesehatan di Sekolah', 34500, 2, 'kesehatansekolah.jpg'),
+(62, 1, 9, 'Membuat Batako', 37500, 1, 'batako.jpg'),
+(63, 2, 9, 'Menuju Olimpiade Fisika', 98200, 1, 'olimpiade.jpg'),
+(65, 4, 9, 'Pertolongan Pertama pada Penyakit 2', 34500, 1, 'pertolonganpertama.jpg'),
+(66, 1, 9, 'Selayang Pandang Gunung Lawu (Wisata dan Mitos)', 33500, 1, 'gununglawu.jpg'),
+(67, 2, 10, 'Ayo Berlatih Menulis Surat', 37500, 2, 'ayoberlatih.jpg'),
+(68, 3, 10, 'Ayo, Bangun untuk Salat Subuh', 30000, 2, 'ayobangun.jpg'),
+(72, 3, 10, 'Mahir Menggunakan Kamus Bahasa Indonesia', 31500, 1, 'mahir.jpg'),
+(73, 4, 10, 'Panduan Praktis Berbusana', 30000, 2, 'busana.jpg'),
+(76, 3, 11, 'Selayang Pandang Gorontalo', 38500, 2, 'gorontalo.jpg'),
+(77, 4, 12, 'Keajaiban Adab Pertengahan 2', 30000, 1, 'keajaiban1.jpg'),
+(78, 1, 12, 'Menggapai Kesuksesan Masa Depan', 33500, 2, 'masadepan.jpg'),
+(79, 2, 12, 'Menghindari Berbagai Bencana Alam', 33300, 2, 'bencana.jpg'),
+(80, 3, 12, 'Mau Kaya Ngak Harus Kuliah 4', 37500, 2, 'kuliah.jpg'),
+(81, 4, 12, 'Memajukan Daerah Tertinggal', 33500, 2, 'memajukan.jpg'),
+(82, 1, 12, 'Mengenali dan Mengobati Penyakit', 34500, 2, 'mengenali.jpg'),
+(83, 2, 12, 'Perkembangan Masyarakat pada Masa Kerajaan Hindu Buddha serta Peninggalannya', 38000, 1, 'hindu.jpg'),
+(84, 3, 12, 'Selayang Pandang Indonesiaku', 38000, 1, 'selayang.jpg'),
+(88, 3, 14, 'Jelajah Museum Jawa Timur dan Bali', 30000, 2, 'jatim.jpg'),
+(101, 5, 9, 'Aneka Cabang Olah Raga', 34500, 2, 'mengenal.jpg');
 
 -- --------------------------------------------------------
 
@@ -202,6 +178,29 @@ CREATE TABLE `orders` (
   `order_total_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `customer_id`, `payment_method_id`, `order_date`, `order_status`, `order_total_price`) VALUES
+(6, 3, 3, '2024-05-08', 'paid', 33500),
+(7, 3, 3, '2024-05-08', 'paid', 33500),
+(8, 3, 2, '2024-05-08', 'paid', 33500),
+(9, 3, 3, '2024-05-08', 'paid', 33500),
+(10, 3, 1, '2024-05-08', 'paid', 37500),
+(11, 3, 1, '2024-05-08', 'paid', 37500),
+(12, 3, 1, '2024-05-08', 'paid', 37500),
+(13, 3, 3, '2024-05-08', 'paid', 37500),
+(14, 3, 3, '2024-05-08', 'paid', 37500),
+(15, 3, 2, '2024-05-08', 'paid', 37500),
+(16, 3, 1, '2024-05-08', 'paid', 37500),
+(17, 3, 1, '2024-05-08', 'paid', 37500),
+(18, 3, 1, '2024-05-08', 'paid', 37500),
+(19, 3, 1, '2024-05-08', 'paid', 37500),
+(20, 3, 1, '2024-05-08', 'paid', 37500),
+(21, 3, 1, '2024-05-08', 'paid', 33500),
+(22, 3, 2, '2024-05-08', 'paid', 33500);
+
 -- --------------------------------------------------------
 
 --
@@ -215,6 +214,29 @@ CREATE TABLE `order_details` (
   `order_detail_qty` int(11) NOT NULL,
   `order_detail_unit_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`order_detail_id`, `order_id`, `book_id`, `order_detail_qty`, `order_detail_unit_price`) VALUES
+(9, 6, 100, 1, 33500),
+(10, 7, 100, 1, 33500),
+(11, 8, 100, 1, 33500),
+(12, 9, 100, 1, 33500),
+(13, 10, 99, 1, 37500),
+(14, 11, 99, 1, 37500),
+(15, 12, 99, 1, 37500),
+(16, 13, 99, 1, 37500),
+(17, 14, 99, 1, 37500),
+(18, 15, 99, 1, 37500),
+(19, 16, 99, 1, 37500),
+(20, 17, 99, 1, 37500),
+(21, 18, 99, 1, 37500),
+(22, 19, 99, 1, 37500),
+(23, 20, 99, 1, 37500),
+(24, 21, 100, 1, 33500),
+(25, 22, 100, 1, 33500);
 
 -- --------------------------------------------------------
 
@@ -278,7 +300,8 @@ CREATE TABLE `staffs` (
 --
 
 INSERT INTO `staffs` (`staff_id`, `role_id`, `staff_name`, `staff_phone`, `staff_email`, `staff_password`) VALUES
-(3, 1, 'faiz', '085242242424', 'faiz@example.com', '$2y$10$qJkFUh1FAMiKC.BYIOmlgO.0IRzeS4fv6PeF0xAoiM.fFFvu4WbQu');
+(3, 1, 'faiz', '085242242424', 'faiz@example.com', '$2y$10$qJkFUh1FAMiKC.BYIOmlgO.0IRzeS4fv6PeF0xAoiM.fFFvu4WbQu'),
+(4, 2, 'rikad', '08571937373', 'rikad@example.com', '$2y$10$Y8Ttpzm8uUJ7qnqRqw19iOM9G3Nd6mMytWfpFuGi6Gouvtztuw1uy');
 
 -- --------------------------------------------------------
 
@@ -384,7 +407,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -402,13 +425,13 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `payment_methods`
@@ -426,7 +449,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `staffs`
 --
 ALTER TABLE `staffs`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
@@ -442,15 +465,15 @@ ALTER TABLE `suppliers`
 -- Constraints for table `books`
 --
 ALTER TABLE `books`
-  ADD CONSTRAINT `FK_category_book` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`),
-  ADD CONSTRAINT `FK_book_supplier` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`supplier_id`);
+  ADD CONSTRAINT `FK_book_supplier` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`supplier_id`),
+  ADD CONSTRAINT `FK_category_book` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`);
 
 --
 -- Constraints for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  ADD CONSTRAINT `FK_cart_item_customer` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`),
-  ADD CONSTRAINT `FK_cart_item_book` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`);
+  ADD CONSTRAINT `FK_cart_item_book` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`),
+  ADD CONSTRAINT `FK_cart_item_customer` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`);
 
 --
 -- Constraints for table `orders`
@@ -463,8 +486,8 @@ ALTER TABLE `orders`
 -- Constraints for table `order_details`
 --
 ALTER TABLE `order_details`
-  ADD CONSTRAINT `FK_order_detail_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
-  ADD CONSTRAINT `FK_order_detail_book` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`);
+  ADD CONSTRAINT `FK_order_detail_book` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`),
+  ADD CONSTRAINT `FK_order_detail_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
 --
 -- Constraints for table `staffs`
