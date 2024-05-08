@@ -1,7 +1,7 @@
 <!-- sidebar -->
 <div class="sidebar">
   <div class="sidebar__header">
-    <a href="./index.php" class="sidebar__brand"><img src="../assets/img/logo.png" alt="FloraFavs" /></a>
+    <a href="./index.php" class="sidebar__brand"><img src="../assets/img/logorahman.png" alt="FloraFavs" /></a>
   </div>
   <nav class="sidebar__body">
     <ul class="sidebar__menu-list">

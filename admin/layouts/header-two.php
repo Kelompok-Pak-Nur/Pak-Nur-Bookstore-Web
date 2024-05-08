@@ -20,7 +20,7 @@
   <div class="navbar">
     <div class="navbar__container container">
       <a href="../index.php" class="navbar__brand">
-        <img src="../assets/img/logo.png" alt="FloraFavs" />
+        <img src="../assets/img/logorahman.png" alt="FloraFavs" />
       </a>
       <?php if (isset($_SESSION['customer_id'])) : ?>
         <nav class="navbar__nav">
